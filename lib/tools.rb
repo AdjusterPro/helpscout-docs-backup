@@ -20,7 +20,7 @@ def get_items(endpoint)
     items += r['items']
 
     page += 1
-    break if r['pages'] == 1 or page > r['pages']
+    break if page > r['pages']
   end
   items
 end
