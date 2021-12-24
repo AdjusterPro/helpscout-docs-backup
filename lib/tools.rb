@@ -13,15 +13,14 @@ end
 
 def get_items(endpoint)
   item_name = endpoint.split('/').last
-  items = []
   page = 1
+  items = []
   loop do
     r = get(endpoint + "?page=#{page}")[item_name]
     items += r['items']
 
     page += 1
-    break if page > r['pages']
+    break items if page > r['pages']
   end
-  items
 end
 
